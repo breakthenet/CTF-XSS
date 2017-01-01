@@ -29,4 +29,6 @@ function set_mysql() {
         }
     }
 
+    $adminpassword = md5(getenv('CTF_FLAG'));
+    mysql_query("INSERT INTO `users` VALUES (1,'admin','{$adminpassword}', '')");
 }

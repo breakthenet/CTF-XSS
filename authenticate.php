@@ -13,7 +13,7 @@ else
 {
     $mem = mysql_fetch_assoc($uq);
     $_SESSION['id'] = $mem['id'];
-    $ctfflag = "Nope! Only the admin's account has this set";
+    $ctfflag = "Nope only the admin account has this set";
     if ($_SESSION['id'] == 1) {
         $ctfflag = getenv('CTF_FLAG');
     }

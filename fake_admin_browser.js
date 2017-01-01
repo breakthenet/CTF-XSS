@@ -1,9 +1,11 @@
-// Locally: phantomjs fake_admin_browser.js --url test.com 
-// Heroku: /app/vendor/phantomjs/bin/phantomjs fake_admin_browser.js --url test.com 
+// Locally: phantomjs fake_admin_browser.js --url test.com
+// Heroku: /app/vendor/phantomjs/bin/phantomjs fake_admin_browser.js --url test.com
 
 var system = require('system');
 var killTimeout = 0;
 var base_url = "http://localhost:8888/";
+var password = "";
+var profileid = 0;
 
 if (system.args.length === 1) {
     console.log('Try to pass some args when invoking this script!');
@@ -12,19 +14,25 @@ if (system.args.length === 1) {
         if (i == 2) {
             base_url = arg;
         }
+        if (i == 4) {
+            password = arg;
+        }
+        if (i == 6) {
+            profileid = arg;
+        }
     });
 }
 
 function scan_user_list() {
     var userlistpage = require('webpage').create();
-    
+
     userlistpage.onConsoleMessage = function(msg) {
         if (msg.indexOf("viewuser.php") > -1) {
             //Found user profile, run it and scan for links
             scan_user_profile(msg);
         }
     };
-    
+
     userlistpage.open(base_url+"userlist.php", function (status) {
         // Check for page load success
         if (status !== "success") {
@@ -72,7 +80,7 @@ function scan_user_profile(profileurl) {
     });
 }
 
-function scan_external_age(url) {    
+function scan_external_age(url) {
     if (url.indexOf("googleapis") > -1) {
         //pass
     }
@@ -94,13 +102,13 @@ function scan_external_age(url) {
 }
 
 var loginpage = require('webpage').create();
-loginpage.open(base_url+'authenticate.php', 'post', 'username=admin&password=cupcake&save=OFF', function (status) {
+loginpage.open(base_url+'authenticate.php', 'post', 'username=admin&password='+password+'&save=OFF', function (status) {
     if (status !== 'success') {
         console.log('********Login failed!!!!');
         console.log(loginpage.content);
     } else {
         console.log('Login successful.');
     }
-    
+
     scan_user_list();
 });
