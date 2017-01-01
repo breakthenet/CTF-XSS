@@ -24,6 +24,7 @@ if (system.args.length === 1) {
 
 function open_target_profile(profileid) {
     var userprofilepage = require('webpage').create();
+    console.log("spot 1");
     userprofilepage.onAlert = function(alertmsg) {
         console.log("ALERT:", alertmsg);
     }
@@ -33,8 +34,10 @@ function open_target_profile(profileid) {
         } else {
             console.log("Successfully opened "+base_url+profileurl);
         }
+        setTimeout(function(){
+            phantom.exit(0);
+        }, 3000);
     });
-    phantom.exit(0);
 }
 
 var loginpage = require('webpage').create();
