@@ -2,7 +2,6 @@
 // Heroku: /app/vendor/phantomjs/bin/phantomjs fake_admin_browser.js --url test.com
 
 var system = require('system');
-var killTimeout = 0;
 var base_url = "http://localhost:8888/";
 var password = "";
 var profileid = 0;
@@ -24,7 +23,6 @@ if (system.args.length === 1) {
 }
 
 function open_target_profile(profileid) {
-    clearTimeout(killTimeout);
     var userprofilepage = require('webpage').create();
     userprofilepage.onAlert = function(alertmsg) {
         console.log("ALERT:", alertmsg);
@@ -35,7 +33,7 @@ function open_target_profile(profileid) {
         } else {
             console.log("Successfully opened "+base_url+profileurl);
         }
-        killTimeout = setTimeout(function(){
+        setTimeout(function(){
             phantom.exit(0);
         }, 3000);
     });
