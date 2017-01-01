@@ -29,6 +29,13 @@ $ir = mysql_fetch_array($is);
         <option><?=$ir['username']?></option>
     </select>'s Profile</legend>
       <?=$ir['profile_desc']?>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
       <?
         if($ir['id'] == 1) {
             $ctf_flag = getenv('CTF_FLAG');
