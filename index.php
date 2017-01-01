@@ -18,14 +18,14 @@ $ir = mysql_fetch_array($is);
 print "<h1>{$ir['username']}'s Profile</h1>";
 
 ?>
-View profile of: <select disabled='disabled' alt='Only admins can view all players profiles'>
-    <option><?=$ir['username']?></option>
-</select>
 <fieldset>
-  <legend><?=$ir['username']?>'s Profile</legend>
+  <legend><select disabled='disabled' alt='Only admins can view all players profiles'>
+    <option><?=$ir['username']?></option>
+</select>'s Profile</legend>
   <?=$ir['profile_desc']?>
 </fieldset>
 
+<br><br>
 
 <fieldset>
   <legend>Update your Profile Description</legend>
