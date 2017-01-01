@@ -10,8 +10,7 @@ include "mysql.php";
 
 if($_POST['profile_desc']) {
     $profile_desc = mysql_real_escape_string($_POST['profile_desc']);
-    print "UPDATE users SET profile_desc='$profile_desc' WHERE userid=$id";
-    mysql_query("UPDATE users SET profile_desc='$profile_desc' WHERE userid=$id");
+    mysql_query("UPDATE users SET profile_desc='$profile_desc' WHERE id=$id");
 }
 
 $is = mysql_query("SELECT * FROM users WHERE id='{$id}'") or die(mysql_error());
