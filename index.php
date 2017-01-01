@@ -31,7 +31,7 @@ print "<h1>{$ir['username']}'s Profile</h1>";
 <fieldset>
   <legend>Update your Profile Description</legend>
   <form action="index.php" method="post" name="login" id="login">
-    Current Value: <textarea name="profile_desc" /><?=$ir['profile_desc']?></textarea><br />
+    Current Value: <textarea id="profile_desc" name="profile_desc" rows=5 cols=10 /><?=$ir['profile_desc']?></textarea><br />
     <input type="submit" value="Submit" />
   </form>
 </fieldset>
