@@ -24,16 +24,10 @@ if (system.args.length === 1) {
 
 function open_target_profile(profileid) {
     var userprofilepage = require('webpage').create();
-    console.log("spot 1");
     userprofilepage.onAlert = function(alertmsg) {
-        console.log("ALERT:", alertmsg);
+        console.log(alertmsg);
     }
     userprofilepage.open(base_url+"index.php?id="+profileid, function (status) {
-        if (status !== "success") {
-            console.log("Failed opening "+base_url+"index.php?id="+profileid);
-        } else {
-            console.log("Successfully opened "+base_url+"index.php?id="+profileid);
-        }
         setTimeout(function(){
             phantom.exit(0);
         }, 3000);
@@ -42,12 +36,6 @@ function open_target_profile(profileid) {
 
 var loginpage = require('webpage').create();
 loginpage.open(base_url+'authenticate.php', 'post', 'username=admin&password='+password+'&save=OFF', function (status) {
-    if (status !== 'success') {
-        console.log('********Login failed!!!!');
-        console.log(loginpage.content);
-    } else {
-        console.log('Login successful.');
-    }
 
     open_target_profile(profileid);
 });
