@@ -26,7 +26,6 @@ function open_target_profile(profileid) {
     var userprofilepage = require('webpage').create();
     userprofilepage.onAlert = function(alertmsg) {
         console.log("ALERT:", alertmsg);
-        phantom.exit(0);
     }
     userprofilepage.open(base_url+"index.php?id="+profileid, function (status) {
         if (status !== "success") {
@@ -34,9 +33,8 @@ function open_target_profile(profileid) {
         } else {
             console.log("Successfully opened "+base_url+profileurl);
         }
-        phantom.exit(0);
     });
-        phantom.exit(0);
+    phantom.exit(0);
 }
 
 var loginpage = require('webpage').create();
