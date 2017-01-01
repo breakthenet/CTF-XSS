@@ -13,11 +13,7 @@ else
 {
     $mem = mysql_fetch_assoc($uq);
     $_SESSION['id'] = $mem['id'];
-    $ctfflag = "Nope only the admin account has this set";
-    if ($_SESSION['id'] == 1) {
-        $ctfflag = getenv('CTF_FLAG');
-    }
-    setcookie("ctfFLAG", $ctfflag, time()+36000);
+    setcookie("hint", 'use-these-cookies-to-login-as-admin', time()+36000);
     header("Location: /index.php");
     exit;
 }
