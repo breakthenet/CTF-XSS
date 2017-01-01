@@ -42,6 +42,9 @@ $ir = mysql_fetch_array($is);
       <br><br>
       <br><br>
       <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
       <hr>
       <?
         if($ir['id'] == 1) {
