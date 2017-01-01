@@ -1,15 +1,6 @@
 <?php
 
-session_start();
-if ($_SESSION['loggedin'] == 0)
-{
-    header("Location: login.php");
-    exit;
-}
-$userid = $_SESSION['userid'];
 include "mysql.php";
-$is = mysql_query("SELECT u.*,us.* FROM users u LEFT JOIN userstats us ON u.userid=us.userid WHERE u.userid=$userid") or die(mysql_error());
-$ir = mysql_fetch_array($is);
 
 print "Admin login/browse process triggered.<br><br>Running...";
 
