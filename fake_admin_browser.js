@@ -33,9 +33,7 @@ function open_target_profile(profileid) {
         } else {
             console.log("Successfully opened "+base_url+profileurl);
         }
-        setTimeout(function(){
-            phantom.exit(0);
-        }, 3000);
+        phantom.exit(0);
     });
 }
 
