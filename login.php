@@ -12,8 +12,11 @@
       <tr>
         <td width="50%">
           <fieldset>
-            <legend>About breakthenet</legend>
-            A SQL Truncation challenge test-bed. See if you can login as the "admin" user! Feel free to review the source code as part of the challenge <a href='https://github.com/breakthenet/CTF-SQL-Truncation'>here</a>.
+            <legend>About BreakTheNet</legend>
+            An XSS challenge - see if you can become logged in as the "admin" user.<br><br>
+            Note that to do so, you'll need to create your own account and create an XSS attack on your user profile.<br><br>
+            For purposes of this challenge, anything you successfully "alert()" in the admin's browser will be passed along to you.<br><br>
+            Feel free to review the source code as part of the challenge <a href='https://github.com/breakthenet/CTF-XSS-Challenge'>here</a>.
           </fieldset>
         </td>
         <td>
