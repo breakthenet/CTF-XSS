@@ -5,7 +5,7 @@ if (!$id) {
     header("Location: login.php");
     exit;
 }
-
+header('X-XSS-Protection: 0');
 include "mysql.php";
 
 if($_POST['profile_desc']) {
