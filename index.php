@@ -13,7 +13,10 @@ if($_POST['profile_desc']) {
     mysql_query("UPDATE users SET profile_desc='$profile_desc' WHERE id=$id");
 }
 
-$id = $_GET['id'];
+if($_GET['id'] && $id == 1) {
+    //Admin uses this to browse to other people's profiles.
+    $id = $_GET['id'];
+}
 
 $is = mysql_query("SELECT * FROM users WHERE id='{$id}'") or die(mysql_error());
 $ir = mysql_fetch_array($is);
