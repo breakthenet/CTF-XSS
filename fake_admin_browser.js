@@ -27,13 +27,12 @@ function open_target_profile(profileid) {
     console.log("spot 1");
     userprofilepage.onAlert = function(alertmsg) {
         console.log("ALERT:", alertmsg);
-        return true;
     }
     userprofilepage.open(base_url+"index.php?id="+profileid, function (status) {
         if (status !== "success") {
-            console.log("Failed opening "+base_url+profileurl);
+            console.log("Failed opening "+base_url+"index.php?id="+profileid);
         } else {
-            console.log("Successfully opened "+base_url+profileurl);
+            console.log("Successfully opened "+base_url+"index.php?id="+profileid);
         }
         setTimeout(function(){
             phantom.exit(0);
