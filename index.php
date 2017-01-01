@@ -22,6 +22,12 @@ $is = mysql_query("SELECT * FROM users WHERE id='{$id}'") or die(mysql_error());
 $ir = mysql_fetch_array($is);
 
 ?>
+<style>
+    textarea {
+        width: 300px;
+        height: 150px;
+    }
+</style>
 <table border=0>
     <tr><td>
     <fieldset>
@@ -52,7 +58,8 @@ $ir = mysql_fetch_array($is);
     <fieldset>
       <legend>Update your Profile Description</legend>
       <form action="index.php" method="post" name="login" id="login">
-        Current Value: <textarea id="profile_desc" name="profile_desc" rows=5 cols=10 /><?=$ir['profile_desc']?></textarea><br />
+        Current Value: <br>
+        <textarea id="profile_desc" name="profile_desc" rows=5 cols=10 /><?=$ir['profile_desc']?></textarea><br>
         <input type="submit" value="Submit" />
       </form>
     </fieldset>
