@@ -41,4 +41,12 @@ print "<h1>{$ir['username']}'s Profile</h1>";
 </fieldset>
 
 <br><br><br>
+<script>
+function trigger_admin() {
+    window.open('trigger_fake_admin.php?id='+<?=$id?>, 'Admin Simulation', 'status=1, height=485, width=420, left=100, top=100, resizable=0');
+}
+</script>
+<button onclick="trigger_admin()">Lay trap for admin to visit your profile...</button>
+
+<br><br><br>
 &gt; <a href='logout.php'>LOGOUT</a>

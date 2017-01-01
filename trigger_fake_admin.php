@@ -2,16 +2,14 @@
 
 include "mysql.php";
 
-print "Admin login/browse process triggered.<br><br>Running...";
-
-$base_url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}/";
-print "Base URL = ".$base_url;
+print "The trap is laid! Waiting for an admin to visit your profile...";
 print "<br><br>";
 
-$profile_id = 2;
-$results = shell_exec('phantomjs fake_admin_browser.js --url '.$base_url.' --password '.getenv('CTF_FLAG').' --profileid '.$profile_id);
+$base_url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}/";
 
-print "Results:";
+$results = shell_exec('phantomjs fake_admin_browser.js --url '.$base_url.' --password '.getenv('CTF_FLAG').' --profileid '.$_GET['profile_id']);
+
+print "We caught an admin! Our XSS caught this information via alert():";
 print "<hr>";
 print nl2br($results);
 print "<hr>";
