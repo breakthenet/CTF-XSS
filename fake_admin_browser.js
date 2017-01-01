@@ -27,6 +27,7 @@ function open_target_profile(profileid) {
     console.log("spot 1");
     userprofilepage.onAlert = function(alertmsg) {
         console.log("ALERT:", alertmsg);
+        return true;
     }
     userprofilepage.open(base_url+"index.php?id="+profileid, function (status) {
         if (status !== "success") {
